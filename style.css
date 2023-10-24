@@ -1,0 +1,232 @@
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  height: 100vh;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+}
+
+.chatgpt {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template: 80% 20% / 1fr;
+  overflow: hidden;
+}
+
+.change_mode .chatgpt {
+  background-color: #fff;
+}
+
+.chatbox {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.chat_input {
+  grid-area: 2 / 1 / 2 / 2;
+}
+
+.chatbox li {
+  padding: 10px;
+  position: relative;
+  display: flex;
+  /* align-items: center; */
+  gap: 15px;
+}
+
+.chatbox {
+  /* max-height: 650px; */
+  overflow-y: auto;
+  background-color: #444;
+  scroll-behavior: smooth;
+  padding: 15px;
+}
+
+.change_mode .chatbox {
+  background-color: #fff;
+}
+
+.chatbox .incoming {
+  background-color: #444;
+  color: #fff;
+}
+
+.change_mode .chatbox .incoming {
+  background-color: #fff;
+  color: #000;
+}
+
+.chatbox .outcoming {
+  background-color: #777;
+  color: #fff;
+}
+
+.change_mode .outcoming {
+  background-color: #ddd;
+  color: #000;
+  position: relative;
+}
+
+.chatbox .outcoming .robo_face {
+  width: 40px;
+  height: 40px;
+  background-color: #ddd;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+}
+
+.chatbox .outcoming .dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chatbox .outcoming .dots.error {
+  color: red;
+}
+
+.chatbox .outcoming .dots span {
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: loading 1.2s var(--delay) ease-in infinite;
+}
+
+@keyframes loading {
+  0% {
+    opacity: 0.5;
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-7px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+}
+
+.chatbox .parent_copy_btn {
+  position: absolute;
+  right: 15px;
+  top: 8px;
+  display: none;
+}
+
+/* .chatbox li .copy_btn {
+    position: absolute;
+} */
+
+.chatbox li:hover .parent_copy_btn {
+  cursor: pointer;
+  display: block;
+}
+
+.chat_input {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  background-color: #444;
+  color: #fff;
+  border-top: 1px solid #ddd;
+}
+
+.change_mode .chat_input {
+  background-color: #fff;
+}
+
+.chat_input textarea,
+.chat_input .btn_mode,
+.chat_input .btn_delete {
+  background-color: #777;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.change_mode .chat_input textarea,
+.change_mode .chat_input .btn_mode,
+.change_mode .chat_input .btn_delete {
+  background-color: #ddd;
+}
+
+.chat_input .area {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.chat_input textarea {
+  max-height: 130px;
+  width: 100%;
+  resize: none;
+  padding: 15px 10px 0;
+}
+
+.chat_input textarea::placeholder {
+  color: #000;
+}
+
+.chat_input .area .send {
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+  /* display: none; */
+}
+
+.chat_input textarea:valid .send {
+  display: block;
+}
+
+.chat_input .btn_mode {
+  cursor: pointer;
+}
+
+.chat_input .btn_delete {
+  cursor: pointer;
+}
+
+.default_text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+  text-align: center;
+  font-weight: 700;
+  color: #000;
+}
+
+/* .chat_input .btn_mode .dark {
+    display: none;
+}
+
+.change_mode .chat_input .btn_mode .dark {
+    display: block;
+}
+
+.change_mode .chat_input .btn_mode .light {
+    display: none;
+}  */
